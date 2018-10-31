@@ -1,0 +1,7 @@
+html, body {
+    margin: 0;
+}
+
+#draw {
+  border: solid 5px black;
+}
