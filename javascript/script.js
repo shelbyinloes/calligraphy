@@ -1,7 +1,7 @@
 const canvas = document.querySelector('#draw');
 const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+canvas.width = 900;
+canvas.height = 500;
 ctx.strokeStyle = '#BADA55';
 ctx.lineJoin = 'round';
 ctx.lineCap = 'round';
@@ -16,7 +16,7 @@ let direction = true;
 function draw(e) {
   if(!isDrawing) return; //stop fn from running when they are not moused down
   console.log(e);
-  ctx.strokeStyle = `hsl(${hue}, 70%, 50%)`;
+  ctx.strokeStyle = "black";
   ctx.beginPath();
   ctx.moveTo(lastX, lastY);
   ctx.lineTo(e.offsetX, e.offsetY);
