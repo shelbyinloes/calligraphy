@@ -27,49 +27,52 @@ function draw(e) {
 }
 
 function changeWidth(e){
-  const newX = Math.ceil(e.offsetX/10);
-  const newY = Math.ceil(e.offsetY/10);
-  const newLastX = Math.ceil(lastX/10);
-  const newLastY = Math.ceil(lastY/10);
+  const newX = Math.ceil(e.offsetX/5);
+  const newY = Math.ceil(e.offsetY/5);
+  const newLastX = Math.ceil(lastX/5);
+  const newLastY = Math.ceil(lastY/5);
   console.log(newX, newY)
   console.log(newLastX, newLastY)
+  console.log(ctx.lineWidth)
 
   // if((newLastX > newX) && newLastY > newY){
   //   ctx.strokeStyle = "black";
   // }
 
-  if((newLastX > newX) && (newLastY > newY)){
-    if(ctx.lineWidth == 20){
+  if(newY <= newLastY){
+    if(ctx.lineWidth == 5){
+      console.log("here")
       return;
-    }else if(ctx.lineWidth < 20){
-      ctx.lineWidth++
-    }else if(ctx.lineWidth > 20){
+    }else if(ctx.lineWidth > 5){
       ctx.lineWidth--
+      console.log("should be decreasing")
     }
     // ctx.strokeStyle = "blue"
-  }else if((newLastX > newX) && (newLastY < newY)){
+  }else if(newY >= newLastY){
     if(ctx.lineWidth == 30){
+      console.log("wtf")
       return
-    }if(ctx.lineWidth < 30){
+    }else if(ctx.lineWidth < 30){
+      console.log("plus plus")
       ctx.lineWidth++
     }
     // ctx.strokeStyle = "pink"
-  }else if((newLastX < newX) && (newLastY < newY)){
-    // ctx.strokeStyle = "green"
-    if(ctx.lineWidth == 15){
-      return;
-    }else if(ctx.lineWidth < 15){
-      ctx.lineWidth++
-    }else if(ctx.lineWidth > 15){
-      ctx.lineWidth--
-    }
-  }else if((newLastX < newX) && (newLastY > newY)){
-    // ctx.strokeStyle = "purple"
-    if(ctx.lineWidth == 10){
-      return
-    }if(ctx.lineWidth < 10){
-      ctx.lineWidth--
-    }
+  // }else if((newLastX <= newX) && (newLastY <= newY)){
+  //   // ctx.strokeStyle = "green"
+  //   if(ctx.lineWidth == 15){
+  //     return;
+  //   }else if(ctx.lineWidth < 15){
+  //     ctx.lineWidth++
+  //   }else if(ctx.lineWidth > 15){
+  //     ctx.lineWidth--
+  //   }
+  // }else if((newLastX <= newX) && (newLastY >= newY)){
+  //   // ctx.strokeStyle = "purple"
+  //   if(ctx.lineWidth == 5){
+  //     return
+  //   }if(ctx.lineWidth < 5){
+  //     ctx.lineWidth--
+  //   }
   }
 
 
